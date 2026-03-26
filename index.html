@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paco Rivas | A cartografía da memoria e do mar</title>
+    <meta name="description" content="Web minimalista sobre Paco Rivas, autor galego, investigador e poeta da Mariña Lucense.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav id="navbar">
+        <a href="#inicio" class="logo">Paco Rivas</a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#biografia">Biografía</a></li>
+            <li><a href="#obras">Obras</a></li>
+            <li><a href="#prensa">Notas de prensa</a></li>
+            <li><a href="#musica">Música</a></li>
+            <li><a href="#canciones">Voces</a></li>
+            <li><a href="#galeria">Fotografías</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="hero">
+        <div class="hero-bg">
+            <img src="assets/hero_bg.png" alt="Costa da Mariña Lucense">
+            <div class="overlay"></div>
+        </div>
+        <div class="hero-content reveal">
+            <h1>Paco Rivas</h1>
+            <p class="subtitle">A cartografía da memoria e do mar</p>
+            <div class="hero-text">
+                <p>Nado en Cervo en 1955, Paco Rivas é unha das voces poéticas e narrativas máis singulares da Xeración dos 90. A súa obra é un tecido continuo onde o rigor do filólogo nutre a precisión do poeta, e a saudade do emigrante se funde co arraigamento do habitante da costa lucense.</p>
+            </div>
+            <a href="#biografia" class="btn">Descubrir a súa obra</a>
+        </div>
+    </header>
+
+    <!-- Biografía -->
+    <section id="biografia" class="section biografia-section">
+        <div class="grid-2 reveal">
+            <div class="bio-text">
+                <h2>O home e o mar</h2>
+                <p>Fillo dun garda civil natural de Castro de Ribeiras de Lea e dunha muller de Lavacolla, a súa crianza en Nois (Foz) deulle unha perspectiva privilexiada sobre a diversidade dialectal galega. Navegando sempre entre a sobriedade do mundo rural e a inmensidade mutante do océano.</p>
+                <p>Licenciado en Filoloxía pola Universidade de Santiago de Compostela, exerceu durante décadas como profesor e asesor lingüístico. A súa incesante labor radiofónica en Radio Cornellá, Radio Galega e Onda Cero dotou á súa escrita dunha oralidade latente e dunha musicalidade profunda, conectando directamente coa xente ao través das ondas.</p>
+            </div>
+            <div class="bio-image image-glass">
+                <img src="assets/writer_desk.png" alt="Escritorio do autor e o mar">
+            </div>
+        </div>
+    </section>
+
+    <!-- Obras -->
+    <section id="obras" class="section obras-section bg-alt">
+        <div class="container reveal">
+            <h2 class="center-title">Un oceano de palabras</h2>
+            <p class="center-subtitle">A produción literaria e lexicográfica de Rivas, desde a investigación estrita ata o minimalismo do haikú e a novela intimista.</p>
+            
+            <div class="obras-grid">
+                <!-- Investigación -->
+                <div class="obra-card reveal" style="transition-delay: 0.1s;">
+                    <div class="obra-icon">🌊</div>
+                    <h3>O Rexistro Lexicográfico</h3>
+                    <p class="card-desc">O mar como arquivo lingüístico vivo, salvando do esquecemento centos de voces mariñeiras da Mariña Luguesa.</p>
+                    <ul class="obra-list">
+                        <li>De punta a chicote (2015) <span>Obras exhaustiva con 3.500 entradas.</span></li>
+                        <li>Entre o abalo e a zaranda (2016) <span>Dicionario léxico avanzado.</span></li>
+                        <li>Dicionario Fraseolóxico do mar (2005)</li>
+                        <li>Talasonimia da Mariña luguesa</li>
+                    </ul>
+                </div>
+
+                <!-- Poesía -->
+                <div class="obra-card reveal" style="transition-delay: 0.2s;">
+                    <div class="obra-icon">✨</div>
+                    <h3>A Sensorialidade Lírica</h3>
+                    <p class="card-desc">Desde as cantigas populares ata a depuración esencial do haikú xaponés.</p>
+                    <ul class="obra-list">
+                        <li>Cantaruxos do meu mar (1999) <span>Onde o mar adquire dimensión social.</span></li>
+                        <li>De ti, perdidamente (2002) <span>Episodios amatorios e paixón.</span></li>
+                        <li>Camiñante de ningures (2012)</li>
+                        <li>Beixos Gallados (2025) <span>A esencia minimalista da contemplación.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Narrativa -->
+                <div class="obra-card reveal" style="transition-delay: 0.3s;">
+                    <div class="obra-icon">📖</div>
+                    <h3>Narrativa e Memoria</h3>
+                    <p class="card-desc">Viaxes a Ítaca, crítica social e narracións que exploran os recantos do misterio e do pasado.</p>
+                    <ul class="obra-list">
+                        <li>Bóreas (2026) <span>Novela intimista, a viaxe á infancia.</span></li>
+                        <li>Mar... Usía. Relatos salpresados (2018)</li>
+                        <li>O paraugas na raiola (2019)</li>
+                        <li>Alén Mundo <span>Relatos lúgubres e de misterio.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prensa -->
+    <section id="prensa" class="section prensa-section">
+        <div class="container reveal">
+            <h2 class="center-title">As Palabras Permanentes</h2>
+            
+            <div class="quotes-grid">
+                <blockquote class="reveal glass-quote">
+                    "Lendo pódense vivir mil vidas, se non, vives unha e moi aburrida."
+                    <cite>- A filosofía de Rivas sobre a lectura.</cite>
+                </blockquote>
+                
+                <blockquote class="reveal glass-quote">
+                    "Ese intre en que se fechan os ollos para embriagarnos de beleza... de harmonía... de paz..."
+                    <cite>- Sobre a depuración do haikú en Beixos Gallados.</cite>
+                </blockquote>
+                
+                <blockquote class="reveal glass-quote">
+                    "Non hai muros que non se tiren nin cancelas que non se salten... coa palabra. Coa voz da revolución caeron muros máis grandes."
+                    <cite>- A palabra como ferramenta de liberación.</cite>
+                </blockquote>
+            </div>
+            
+            <div class="critica reveal mt-4 p-4 border-left">
+                <h3>A Crítica e "Bóreas"</h3>
+                <p>En "Bóreas" (2026), Rivas sustenta unha tese pedagóxica radical: os nenos non deberían asistir á escola formal ata os 14 anos, dedicándose a xogar e indagar nos mundos da imaxinación, evitando que a presión educativa lles "mate a capacidade de soñar".</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Música e Infantil -->
+    <section id="musica" class="section musica-section bg-alt">
+        <div class="grid-2 reveal">
+            <div class="musica-image image-glass">
+                <img src="assets/music_record.png" alt="Música e cantigas infantís">
+            </div>
+            <div class="musica-text">
+                <h2>A Dimensión Musical e Infantil</h2>
+                <p>Dotado da súa condición de asesor e mestre, Rivas abraza o xogo e a sensorialidade á hora de poñerse en contacto coa infancia.</p>
+                
+                <div class="recurso-destacado mt-4">
+                    <h4>Traca-traco. 24 cantigas de nanar (2015)</h4>
+                    <p>Un fermoso libro-disco que conta coa participación de figuras lendarias como as compoñentes de <strong>Fuxan os Ventos</strong>. Este traballo achega ás familias ferramentas para o arrolo tradicional e asenta bases na metodoloxía Orff para os mestres de música. Premiado como mellor libro infantil na gala Fervenzas Literarias.</p>
+                </div>
+
+                <div class="recurso-destacado mt-3">
+                    <h4>Picaraxadas: brinquedos rimados (2017)</h4>
+                    <p>O "brinquedo" verbal onde a rima se converte no vehículo lúdico para achegar o galego de xeito inmersivo e ledicioso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Voces Intímas (Canciones) -->
+    <section id="canciones" class="section canciones-section">
+        <div class="container reveal">
+            <h2 class="center-title">As Voces do Vento: Poemas en Movemento</h2>
+            <p class="center-subtitle">Como unha sentida homenaxe a Rosalía de Castro, este espazo experimenta coa simbiose entre as letras de Paco Rivas e as vangardas tecnolóxicas contemporáneas.</p>
+            
+            <div class="grid-2 align-start mt-4">
+                <div class="canciones-text glass-card">
+                    <h3>Un Instrumento para a Esencia</h3>
+                    <p>Lonxe de pretender substituír ou eclipsar o irreemplazable labor e a emoción dos músicos e cantantes, a tecnoloxía preséntase aquí estritamente como un modesto lenzo e un pincel máis na paleta creativa. Unha ferramenta que nos axuda a procurar sonoridades ocultas nos versos.</p>
+                    <p>Ao longo destas pezas íntimas, os poemas cobran vida de xeito transfronteirizo (en galego, francés, italiano e inglés). O obxectivo é explorar a musicalidade pura do autor, capturando respiracións, alentos e a esencia emocional atemporal que se esconde tras cada palabra.</p>
+                    
+                    <div class="audio-player mt-4">
+                        <div class="audio-now-playing">
+                            <span class="playing-icon">🎵</span>
+                            <span id="current-track-title">Selecciona unha pista para escoitar...</span>
+                        </div>
+                        <div class="track-list">
+                            <!-- Track Items -->
+                            <button class="track-btn" data-src="Canciones/Adios rios (Tributo a Rosalia de Castro) FINAL.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Adiós Ríos (Tributo a Rosalía de Castro)</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Ahhh... ahhh... v1 FINAL.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Ahhh... Ahhh... v1</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/As rapazas da Mariña v3 FINAL.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">As rapazas da Mariña v3</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Escribirei un poema v1 FINAL 1.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Escribirei un poema v1</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Escribirei un poema v3 FINAL 2.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Escribirei un poema v3</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Mariñeirita bonita v1 FINAL.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Mariñeirita bonita</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Mmm... mmm... v1 FINAL.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Mmm... mmm...</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Namoreime v1 FINAL 1.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Namoreime v1</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Namoreime v2 FINAL 2.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Namoreime v2</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Namoreime v4 FINAL 3.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Namoreime v4</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Noite de luar v2 FINAL.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Noite de luar</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Ollos de Ceo _ Yeux de Ciel v1 FINAL.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Ollos de Ceo / Yeux de Ciel</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Quero durmir no teu colo FINAL.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Quero durmir no teu colo</span>
+                            </button>
+                            <button class="track-btn" data-src="Canciones/Susurros v1 FINAL.mp3">
+                                <span class="track-play-icon">▶</span>
+                                <span class="track-name">Susurros</span>
+                            </button>
+                        </div>
+                        <audio id="main-audio-player" preload="none"></audio>
+                    </div>
+                </div>
+                
+                <div class="canciones-image image-glass">
+                    <img src="paco rivas.jpg" alt="Paco Rivas - O Poeta da Mariña">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="section galeria-section">
+        <div class="container reveal">
+            <h2 class="center-title">Unha Sinfonía Visual</h2>
+            <p class="center-subtitle">O documental "Polo mar dos meus dedos", coa galería Terra Branca e a danza de Ribadeo, funde a poesía de Rivas cos movementos do corpo e o son do mar.</p>
+            
+            <div class="gallery-grid">
+                <!-- Se empregan imaxes referenciadas, algunhas poden repetirse para dotar a vista de consistencia -->
+                <div class="gallery-item glass"><img src="assets/hero_bg.png" alt="Mar da Mariña"></div>
+                <div class="gallery-item glass"><img src="assets/writer_desk.png" alt="Linguaxe e rede"></div>
+                <div class="gallery-item glass"><img src="assets/music_record.png" alt="A arte do arrulo"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-title">Paco Rivas</p>
+            <p class="footer-copy">© 2026. A cartografía da memoria e do mar. Feito con paixón.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
