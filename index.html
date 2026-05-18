@@ -53,7 +53,7 @@
             <div class="bio-text">
                 <h2>O home e o mar</h2>
                 <p>Fillo dun garda civil natural de Castro de Ribeiras de Lea e dunha muller de Lavacolla, a súa crianza en Nois (Foz) deulle unha perspectiva privilexiada sobre a diversidade dialectal galega. Navegando sempre entre a sobriedade do mundo rural e a inmensidade mutante do océano.</p>
-                <p>Licenciado en Filoloxía pola Universidade de Santiago de Compostela, exerceu durante décadas como profesor e asesor lingüístico. A súa incesante labor radiofónica en Radio Cornellá, Radio Galega e Onda Cero dotou á súa escrita dunha oralidade latente e dunha musicalidade profunda, conectando directamente coa xente ao través das ondas.</p>
+                <p>Licenciado en Filoloxía pola Universidade de Santiago de Compostela, exerceu durante décadas como profesor e asesor lingüístico. A súa incesante labor radiofónica en Radio Cornellá e Radio Galega dotou á súa escrita dunha oralidade latente e dunha musicalidade profunda, conectando directamente coa xente ao través das ondas.</p>
             </div>
             <div class="bio-image image-glass">
                 <img src="assets/writer_desk.png" alt="Escritorio do autor e o mar">
@@ -78,6 +78,9 @@
                         <li>Entre o abalo e a zaranda (2016) <span>Dicionario léxico avanzado.</span></li>
                         <li>Dicionario Fraseolóxico do mar (2005)</li>
                         <li>Talasonimia da Mariña luguesa</li>
+                        <li>Expresión e ditos populares da área Mindoniense (1992)</li>
+                        <li>Fraxeoloxía do mar na Mariña Luguesa (2000)</li>
+                        <li>De Ribadeo ao Barqueiro... (2020)</li>
                     </ul>
                 </div>
 
@@ -91,6 +94,12 @@
                         <li>De ti, perdidamente (2002) <span>Episodios amatorios e paixón.</span></li>
                         <li>Camiñante de ningures (2012)</li>
                         <li>Beixos Gallados (2025) <span>A esencia minimalista da contemplación.</span></li>
+                        <li>Traca-traco (2015)</li>
+                        <li>Palavras perdudas (2007)</li>
+                        <li>Auxías (2021)</li>
+                        <li>Romance de D. Dinís... (2022)</li>
+                        <li>Rosas envaiñadas (2002)</li>
+                        <li>E despois... (2022)</li>
                     </ul>
                 </div>
 
@@ -104,6 +113,8 @@
                         <li>Mar... Usía. Relatos salpresados (2018)</li>
                         <li>O paraugas na raiola (2019)</li>
                         <li>Alén Mundo <span>Relatos lúgubres e de misterio.</span></li>
+                        <li>Contos de onte para contar mañá...</li>
+                        <li>A lua non era lua (2021)</li>
                     </ul>
                 </div>
             </div>
@@ -151,7 +162,7 @@
                 
                 <div class="recurso-destacado mt-4">
                     <h4>Traca-traco. 24 cantigas de nanar (2015)</h4>
-                    <p>Un fermoso libro-disco que conta coa participación de figuras lendarias como as compoñentes de <strong>Fuxan os Ventos</strong>. Este traballo achega ás familias ferramentas para o arrolo tradicional e asenta bases na metodoloxía Orff para os mestres de música. </p>
+                    <p>Un fermoso libro-disco que conta coa participación de figuras lendarias como as compoñentes de <strong>Fuxan os Ventos</strong>. Este traballo achega ás familias ferramentas para o arrolo tradicional e asenta bases na metodoloxía Orff para os mestres de música.</p>
                 </div>
 
                 <div class="recurso-destacado mt-3">
@@ -177,6 +188,20 @@
                         <div class="audio-now-playing">
                             <span class="playing-icon">🎵</span>
                             <span id="current-track-title">Selecciona unha pista para escoitar...</span>
+                        </div>
+                        <div class="audio-controls">
+                            <button class="ctrl-btn" id="ctrl-prev" aria-label="Pista anterior" title="Pista anterior">⏮</button>
+                            <button class="ctrl-btn" id="ctrl-back" aria-label="Atrás 10s" title="Atrás 10s">⏪</button>
+                            <button class="ctrl-btn ctrl-play" id="ctrl-play" aria-label="Reproducir/Pausar" title="Reproducir/Pausar">▶</button>
+                            <button class="ctrl-btn" id="ctrl-fwd" aria-label="Adiante 10s" title="Adiante 10s">⏩</button>
+                            <button class="ctrl-btn" id="ctrl-next" aria-label="Pista seguinte" title="Pista seguinte">⏭</button>
+                        </div>
+                        <div class="audio-progress">
+                            <span class="time-current" id="time-current">0:00</span>
+                            <div class="progress-bar" id="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <span class="time-total" id="time-total">0:00</span>
                         </div>
                         <div class="track-list">
                             <!-- Track Items -->

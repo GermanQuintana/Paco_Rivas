@@ -62,55 +62,169 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 4. Custom Audio Player Logic
     const audioPlayer = document.getElementById("main-audio-player");
-    const trackBtns = document.querySelectorAll(".track-btn");
+    const trackBtns = Array.from(document.querySelectorAll(".track-btn"));
     const currentTrackTitle = document.getElementById("current-track-title");
     const playerContainer = document.querySelector(".audio-player");
-    let currentTrackBtn = null;
+    const ctrlPlay = document.getElementById("ctrl-play");
+    const ctrlPrev = document.getElementById("ctrl-prev");
+    const ctrlNext = document.getElementById("ctrl-next");
+    const ctrlBack = document.getElementById("ctrl-back");
+    const ctrlFwd = document.getElementById("ctrl-fwd");
+    const progressBar = document.getElementById("progress-bar");
+    const progressFill = document.getElementById("progress-fill");
+    const timeCurrent = document.getElementById("time-current");
+    const timeTotal = document.getElementById("time-total");
+    let currentIndex = -1;
+
+    const formatTime = (s) => {
+        if (!isFinite(s) || s < 0) return "0:00";
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return m + ":" + (sec < 10 ? "0" : "") + sec;
+    };
+
+    const setPlayIcon = (playing) => {
+        if (ctrlPlay) ctrlPlay.innerText = playing ? "⏸" : "▶";
+    };
+
+    const refreshTrackIcons = () => {
+        trackBtns.forEach((b, i) => {
+            const icon = b.querySelector(".track-play-icon");
+            if (i === currentIndex) {
+                b.classList.add("active");
+                if (icon) icon.innerText = audioPlayer.paused ? "▶" : "⏸";
+            } else {
+                b.classList.remove("active");
+                if (icon) icon.innerText = "▶";
+            }
+        });
+    };
+
+    const loadTrack = (index, autoplay = true) => {
+        if (index < 0 || index >= trackBtns.length) return;
+        const btn = trackBtns[index];
+        const trackSrc = btn.getAttribute("data-src");
+        const trackName = btn.querySelector(".track-name").innerText;
+        currentIndex = index;
+        currentTrackTitle.innerText = (autoplay ? "Soando: " : "Listo: ") + trackName;
+        audioPlayer.src = encodeURI(trackSrc);
+        if (autoplay) {
+            audioPlayer.play().catch(() => {});
+        }
+        refreshTrackIcons();
+    };
 
     if (audioPlayer && trackBtns.length > 0) {
-        trackBtns.forEach(btn => {
+        trackBtns.forEach((btn, index) => {
             btn.addEventListener("click", () => {
-                const trackSrc = btn.getAttribute("data-src");
-                const trackName = btn.querySelector(".track-name").innerText;
-
-                if (currentTrackBtn === btn) {
-                    // Toggle play/pause for the same track
+                if (currentIndex === index) {
                     if (audioPlayer.paused) {
-                        audioPlayer.play();
-                        playerContainer.classList.add("playing-state");
-                        btn.classList.add("active");
+                        audioPlayer.play().catch(() => {});
                     } else {
                         audioPlayer.pause();
-                        playerContainer.classList.remove("playing-state");
-                        btn.classList.remove("active");
                     }
                 } else {
-                    // Play a new track
-                    if (currentTrackBtn) {
-                        currentTrackBtn.classList.remove("active");
-                    }
-                    
-                    // Update current
-                    currentTrackBtn = btn;
-                    currentTrackBtn.classList.add("active");
-                    currentTrackTitle.innerText = "Soando: " + trackName;
-                    
-                    // Update audio source and play
-                    audioPlayer.src = encodeURI(trackSrc);
-                    audioPlayer.play();
-                    playerContainer.classList.add("playing-state");
+                    loadTrack(index, true);
                 }
             });
         });
 
-        // When audio ends naturally
-        audioPlayer.addEventListener("ended", () => {
+        if (ctrlPlay) {
+            ctrlPlay.addEventListener("click", () => {
+                if (currentIndex === -1) {
+                    loadTrack(0, true);
+                    return;
+                }
+                if (audioPlayer.paused) {
+                    audioPlayer.play().catch(() => {});
+                } else {
+                    audioPlayer.pause();
+                }
+            });
+        }
+
+        if (ctrlPrev) {
+            ctrlPrev.addEventListener("click", () => {
+                if (currentIndex === -1) {
+                    loadTrack(0, true);
+                } else {
+                    loadTrack((currentIndex - 1 + trackBtns.length) % trackBtns.length, true);
+                }
+            });
+        }
+
+        if (ctrlNext) {
+            ctrlNext.addEventListener("click", () => {
+                if (currentIndex === -1) {
+                    loadTrack(0, true);
+                } else {
+                    loadTrack((currentIndex + 1) % trackBtns.length, true);
+                }
+            });
+        }
+
+        if (ctrlBack) {
+            ctrlBack.addEventListener("click", () => {
+                if (currentIndex === -1) return;
+                audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - 10);
+            });
+        }
+
+        if (ctrlFwd) {
+            ctrlFwd.addEventListener("click", () => {
+                if (currentIndex === -1) return;
+                const dur = audioPlayer.duration || 0;
+                audioPlayer.currentTime = Math.min(dur, audioPlayer.currentTime + 10);
+            });
+        }
+
+        if (progressBar) {
+            progressBar.addEventListener("click", (e) => {
+                const dur = audioPlayer.duration;
+                if (!isFinite(dur) || dur <= 0) return;
+                const rect = progressBar.getBoundingClientRect();
+                const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+                audioPlayer.currentTime = ratio * dur;
+            });
+        }
+
+        audioPlayer.addEventListener("play", () => {
+            playerContainer.classList.add("playing-state");
+            setPlayIcon(true);
+            refreshTrackIcons();
+        });
+
+        audioPlayer.addEventListener("pause", () => {
             playerContainer.classList.remove("playing-state");
-            if (currentTrackBtn) {
-                currentTrackBtn.classList.remove("active");
+            setPlayIcon(false);
+            refreshTrackIcons();
+        });
+
+        audioPlayer.addEventListener("timeupdate", () => {
+            const cur = audioPlayer.currentTime || 0;
+            const dur = audioPlayer.duration || 0;
+            if (timeCurrent) timeCurrent.innerText = formatTime(cur);
+            if (progressFill && dur > 0) {
+                progressFill.style.width = ((cur / dur) * 100) + "%";
             }
-            currentTrackBtn = null;
-            currentTrackTitle.innerText = "Selecciona unha pista para escoitar...";
+        });
+
+        audioPlayer.addEventListener("loadedmetadata", () => {
+            if (timeTotal) timeTotal.innerText = formatTime(audioPlayer.duration);
+        });
+
+        audioPlayer.addEventListener("ended", () => {
+            if (currentIndex !== -1 && currentIndex < trackBtns.length - 1) {
+                loadTrack(currentIndex + 1, true);
+            } else {
+                playerContainer.classList.remove("playing-state");
+                setPlayIcon(false);
+                if (progressFill) progressFill.style.width = "0%";
+                if (timeCurrent) timeCurrent.innerText = "0:00";
+                currentTrackTitle.innerText = "Selecciona unha pista para escoitar...";
+                currentIndex = -1;
+                refreshTrackIcons();
+            }
         });
     }
 });
